@@ -117,6 +117,17 @@ However you need to manually restart the server for server-side code to take eff
 ```bash
 yarn build:production
 python3 -m vj4.server --listen=unix:/var/run/vj4.sock
+python3 -m vj4.server \
+--listen=http://127.0.0.1:8888 \
+--url-prefix=https://example.com \
+--cdn-prefix=/ \
+--ip-header=X-Real-IP \
+--db-name=vj4 \
+--smtp-host=smtp.qq.com \
+--smtp-port=465 \
+--smtp-user=xx \
+--smtp-password=xx \
+--mail-from=xx
 ```
 
 * Set `--listen` (default: http://127.0.0.1:8888) to listen on a different address.
@@ -124,7 +135,7 @@ python3 -m vj4.server --listen=unix:/var/run/vj4.sock
 * Set `--ip-header` (default: '') to use IP address in request headers.
 * Set `--url-prefix` (default: https://vijos.org) to set URL prefix.
 * Set `--cdn-prefix` (default: /) to set CDN prefix.
-* Set `--smtp-host`, `--smtp-user`, `--smtp-password`, and `--mail-from` to specify a SMTP server.
+* Set `--smtp-host`, `--smtp-port`, `--smtp-user`, `--smtp-password`, and `--mail-from` to specify a SMTP server.
 * Set `--db-host` (default: localhost) and/or `--db-name` (default: test) to use a different
   database.
 
